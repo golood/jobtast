@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app, analis
+import json
 #import anal
 
 @app.route('/')
@@ -41,4 +42,4 @@ def get_json():
     
     return render_template("json.html",
         title = 'Home',
-        data = data)
+        data = json.dumps(data))
