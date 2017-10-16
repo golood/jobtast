@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<table border="1">
+  <tr bgcolor="#ffcc00">
+    <td>Name</td><td>Count</td><td>arrive</td><td>mustbe</td>
+  </tr>
+  {% for key, item in table.items() %}
+  {% if item.count + item.arrive < item.mustbe %}
+    <tr bgcolor="red">
+  {% else %}
+    <tr>
+  {% endif %}
+  <td>{{key}}</td><td>{{item.count}}</td><td>{{item.arrive}}</td><td>{{item.mustbe}}</td> 
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
