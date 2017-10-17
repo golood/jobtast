@@ -26,15 +26,13 @@ def index():
         posts = posts,
         table = table)
 
-@app.route('/')
-@app.route('/index')
 @app.route('/index/json')
 def get_json():
     data = {}
     table = analis.getTable()
 
     for key in table.keys():
-        if (int(table[key]['count']) + int(table[key]['arrive'])) < int(table[key]['mustbe']):
+        if (table[key]['count'] + table[key]['arrive']) < table[key]['mustbe']:
             data.setdefault(key)
             data[key] = {}
             data[key].setdefault("count")
